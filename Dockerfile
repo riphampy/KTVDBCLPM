@@ -13,4 +13,4 @@ COPY . .
 
 RUN mkdir -p /app/static
 
-CMD ["gunicorn", "app:app", "--workers=4", "--bind=0.0.0.0:8000"]
+CMD ["sh", "-c", "gunicorn \"app:create_app()\" -w ${WEB_CONCURRENCY:-1} -b 0.0.0.0:${PORT:-8000} --timeout 120"]

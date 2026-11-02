@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Quản lý sản phẩm - Admin - TechParts</title><link rel="stylesheet" href="/css/styles.css"></head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <h1>Quản lý sản phẩm</h1>
+        <button data-testid="admin-product-add-button" id="add-product-btn">Thêm sản phẩm</button>
+        <table id="products-table">
+            <thead><tr><th>SKU</th><th>Tên</th><th>Giá</th><th>Tồn kho</th><th>Thao tác</th></tr></thead>
+            <tbody id="products-list"></tbody>
+        </table>
+        
+        <!-- Form thêm/sửa -->
+        <div id="product-form" style="display:none; margin-top:20px; border:1px solid #ccc; padding:20px;">
+            <input type="text" data-testid="admin-product-form-sku-input" id="sku" placeholder="SKU">
+            <input type="text" data-testid="admin-product-form-name-input" id="name" placeholder="Tên">
+            <input type="number" data-testid="admin-product-form-price-input" id="price" placeholder="Giá">
+            <input type="number" data-testid="admin-product-form-stock-input" id="stock" placeholder="Tồn kho">
+            <select data-testid="admin-product-form-category-select" id="category_id"></select>
+            <button data-testid="admin-product-form-save-button" id="save-product-btn">Lưu</button>
+        </div>
+    </div>
+    <div id="toast" data-testid="toast-message"></div>
+    <script type="module" src="/js/admin/products.js"></script>
+</body>
+</html>

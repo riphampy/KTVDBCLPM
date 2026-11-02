@@ -3,7 +3,7 @@ Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.0.5
 flask-jwt-extended==4.5.3
 flask-cors==4.0.0
-flasgger==0.2.5
+flasgger==0.9.5
 psycopg2-binary==2.9.9
 gunicorn==21.2.0
 werkzeug==3.0.3

@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_jwt_extended import JWTExtended
+from flask_jwt_extended import JWTManager
 from flasgger import Swagger
 
 from app.config import Config
@@ -15,7 +15,7 @@ def create_app(config_class=Config):
     CORS(app)
     db.init_app(app)
     Migrate(app, db)
-    JWTExtended(app, jwt)
+    jwt.init_app(app)
     Swagger(app, config=swagger_config)
 
     from app.routes import api_bp

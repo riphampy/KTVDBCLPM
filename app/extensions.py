@@ -1,9 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_jwt_extended import JWTExtended
+from flask_jwt_extended import JWTManager
 from flasgger import Swagger
 
 db = SQLAlchemy()
-jwt = JWTExtended()
+jwt = JWTManager()
 
 swagger_config = {
     'headers': [],

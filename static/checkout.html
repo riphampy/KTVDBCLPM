@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Thanh toán - TechParts</title><link rel="stylesheet" href="/css/styles.css"></head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <h1>Thanh toán</h1>
+        <form id="checkout-form">
+            <input type="text" data-testid="checkout-full-name-input" id="full_name" placeholder="Họ tên">
+            <input type="text" data-testid="checkout-phone-input" id="phone" placeholder="Số điện thoại">
+            <textarea data-testid="checkout-address-input" id="address" placeholder="Địa chỉ"></textarea>
+            <button data-testid="checkout-submit-button" type="submit">Đặt hàng</button>
+        </form>
+    </div>
+    <div id="toast" data-testid="toast-message"></div>
+    <script type="module" src="/js/checkout.js"></script>
+</body>
+</html>

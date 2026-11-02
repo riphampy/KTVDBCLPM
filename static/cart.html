@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Giỏ hàng - TechParts</title><link rel="stylesheet" href="/css/styles.css"></head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <h1>Giỏ hàng</h1>
+        <table id="cart-table">
+            <thead><tr><th>Sản phẩm</th><th>Giá</th><th>SL</th><th>Thành tiền</th><th></th></tr></thead>
+            <tbody id="cart-items"></tbody>
+        </table>
+        <div id="cart-summary">
+            <p>Tạm tính: <span data-testid="cart-subtotal" id="subtotal"></span></p>
+            <p>Phí vận chuyển: <span data-testid="cart-shipping-fee" id="shipping-fee"></span></p>
+            <p><strong>Tổng cộng: <span data-testid="cart-total" id="total"></span></strong></p>
+            <button data-testid="cart-clear-button" id="clear-cart">Xóa giỏ hàng</button>
+            <a href="/checkout.html" data-testid="cart-checkout-button" class="button">Thanh toán</a>
+        </div>
+    </div>
+    <div id="toast" data-testid="toast-message"></div>
+    <script type="module" src="/js/cart.js"></script>
+</body>
+</html>

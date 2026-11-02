@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Hồ sơ - TechParts</title><link rel="stylesheet" href="/css/styles.css"></head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <h1>Hồ sơ cá nhân</h1>
+        <form id="profile-form">
+            <input type="text" id="full_name" placeholder="Họ tên">
+            <input type="text" id="phone" placeholder="Số điện thoại">
+            <button type="submit">Cập nhật</button>
+        </form>
+        <hr>
+        <h2>Đổi mật khẩu</h2>
+        <form id="password-form">
+            <input type="password" id="old_password" placeholder="Mật khẩu cũ">
+            <input type="password" id="new_password" placeholder="Mật khẩu mới">
+            <input type="password" id="confirm_password" placeholder="Xác nhận mật khẩu">
+            <button type="submit">Đổi mật khẩu</button>
+        </form>
+    </div>
+    <div id="toast" data-testid="toast-message"></div>
+    <script type="module" src="/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết sản phẩm - TechParts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <a href="/index.html">&larr; Quay lại danh sách</a>
+        
+        <div id="product-detail" style="margin-top: 20px;">
+            <h1 id="product-name"></h1>
+            <p id="product-sku"></p>
+            <p id="product-price"></p>
+            <p id="product-stock"></p>
+            <p id="product-rating"></p>
+            
+            <div style="margin: 20px 0;">
+                <input type="number" id="product-quantity" value="1" min="1" max="99" style="width: 60px;">
+                <button id="add-to-cart-btn">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Đánh giá từ khách hàng</h2>
+        <div id="reviews-list"></div>
+
+        <div id="review-form-container" style="margin-top: 30px;">
+            <h3>Viết đánh giá của bạn</h3>
+            <div style="margin-bottom: 10px;">
+                <label>Điểm (1-5):</label>
+                <select id="review-rating">
+                    <option value="5">5 sao</option>
+                    <option value="4">4 sao</option>
+                    <option value="3">3 sao</option>
+                    <option value="2">2 sao</option>
+                    <option value="1">1 sao</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <textarea id="review-comment" rows="4" style="width: 100%;" placeholder="Nhập nhận xét của bạn..."></textarea>
+            </div>
+            <button id="submit-review-btn">Gửi đánh giá</button>
+        </div>
+    </div>
+
+    <div id="toast" data-testid="toast-message"></div>
+    <div id="loading" data-testid="loading">Đang tải...</div>
+
+    <script type="module" src="/js/product.js"></script>
+</body>
+</html>

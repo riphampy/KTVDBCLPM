@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>TechParts - Bán linh kiện điện tử</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="main-nav"></div>
+    <div class="container">
+        <h1>Danh sách sản phẩm</h1>
+        <div class="filters" style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+            <input type="text" data-testid="product-search-input" placeholder="Tìm theo tên hoặc SKU">
+            <button data-testid="product-search-button">Tìm kiếm</button>
+            
+            <select data-testid="product-category-filter">
+                <option value="">Tất cả danh mục</option>
+            </select>
+            
+            <input type="number" data-testid="product-min-price-input" placeholder="Giá từ">
+            <input type="number" data-testid="product-max-price-input" placeholder="Giá đến">
+            
+            <select data-testid="product-sort-select">
+                <option value="">Sắp xếp mặc định</option>
+                <option value="price_asc">Giá tăng dần</option>
+                <option value="price_desc">Giá giảm dần</option>
+                <option value="name_asc">Tên A-Z</option>
+            </select>
+        </div>
+
+        <div id="product-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;"></div>
+        <div id="empty-message" data-testid="product-empty-message" style="display: none;">Không tìm thấy sản phẩm nào</div>
+
+        <div id="pagination" style="margin-top: 20px; display: flex; gap: 10px; align-items: center;"></div>
+    </div>
+
+    <div id="toast" data-testid="toast-message"></div>
+    <div id="loading" data-testid="loading">Đang tải...</div>
+
+    <script type="module" src="/js/index.js"></script>
+</body>
+</html>

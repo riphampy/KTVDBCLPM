@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME:-techparts}
+      POSTGRES_USER: ${DB_USER:-techparts}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-techparts}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-techparts}:${DB_PASSWORD:-techparts}@db:5432/${DB_NAME:-techparts}
+      APP_ENV: ${APP_ENV:-production}
+      SECRET_KEY: ${SECRET_KEY:-change-this-in-production}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-jwt-secret-change-this}
+      TEST_TOKEN: ${TEST_TOKEN:-secret-test-token-2026}
+    ports:
+      - "8000:8000"
+
+volumes:
+  db_data:

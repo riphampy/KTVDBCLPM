@@ -1,0 +1,6 @@
+### Health Check
+GET http://localhost:8000/api/health
+
+### Test Reset (requires APP_ENV=test and X-Test-Token header)
+POST http://localhost:8000/api/test/reset
+X-Test-Token: secret-test-token-2026

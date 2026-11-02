@@ -1,0 +1,80 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+*.log
+*.tmp
+*.temp
+
+# Database
+db/
+*.db
+*.sqlite
+*.sqlite3
+
+# Coverage
+coverage/
+htmlcov/
+*.coverage
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker
+docker-compose.override.yml
+
+# Test results
+.test-results/
+pytest.xml
+
+# Distribution / packaging
+*.egg
+*.eggs
+*.whl
+*.tar.gz
+*.zip
+
+# Virtual environment
+*.egg-info
+
+# SSH keys
+*.pem
+*.key
+
+# Temporary files
+*~
+*TMP*
+
+# Python cache
+__pycache__/
+.pyc
+.pyo
+.pyw
+
+# IDE files
+.vscode/
+.idea/
+
+# IDE backups
+*.swp
+*.swo
+
+# Windows temporary files
+*~.*

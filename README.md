@@ -1,34 +1,50 @@
-# TechParts Backend (Flask REST API)
+# TechParts - Backend REST API & Frontend E-commerce
 
-Website bán linh kiện điện tử "TechParts" - Đối tượng kiểm thử cho bài tập lớn (Selenium, JMeter).
+Website bán linh kiện điện tử "TechParts" - Được xây dựng như một dự án đối tượng kiểm thử chức năng (Selenium) và kiểm thử hiệu năng (JMeter).
 
-## Tech Stack
-- Python 3.11, Flask, Flask-SQLAlchemy, Flask-Migrate, flask-jwt-extended, flask-cors, flasgger, werkzeug
-- PostgreSQL 16
-- Gunicorn (4 workers)
-- Docker Compose
+## Tổng quan công nghệ
+### Backend
+- **Framework**: Python 3.11, Flask
+- **Database**: PostgreSQL 16
+- **ORM & Migrations**: Flask-SQLAlchemy, Flask-Migrate
+- **Authentication**: Flask-JWT-Extended (Stateless JWT)
+- **Documentation**: Flasgger (Swagger UI at `/apidocs`)
+- **Container**: Docker & Docker Compose
 
-## Cấu trúc dự án
-- `app/`: Mã nguồn chính (models, routes, services, schemas, messages.py)
-- `static/`: Thư mục chứa file tĩnh frontend (được phục vụ ở đường dẫn gốc)
-- `seed/`: Dữ liệu seed
-- `migrations/`: Flask-Migrate migrations
-- `tests/`: File kiểm thử (`api_smoke.http`)
+### Frontend
+- **Công nghệ**: HTML5, CSS3, JavaScript thuần (ES6 Modules)
+- **Kiến trúc**: Không framework, không bundler, đặt tại `static/`
+- **Ràng buộc**: Không animation, font hệ thống, tuân thủ `data-testid` nghiêm ngặt
 
-## Cách chạy dự án bằng Docker Compose
-1. Cài đặt Docker và Docker Compose.
-2. Chạy lệnh:
-   ```bash
-   docker compose up --build
-   ```
-3. API sẵn sàng tại `http://localhost:8000/api`
-4. Swagger UI tại `http://localhost:8000/apidocs`
+## Tính năng chính
+- **Quản lý người dùng**: Đăng ký, Đăng nhập, Profile, Admin quản lý người dùng (khóa/mở khóa).
+- **Sản phẩm**: Tìm kiếm, lọc (danh mục, giá), sắp xếp, phân trang, đánh giá (purchase verification).
+- **Đơn hàng**: Giỏ hàng, đặt hàng (COD), luồng trạng thái (Chờ xác nhận -> Đã xác nhận -> Đang giao -> Hoàn thành).
+- **Quản trị**: Nhập kho, Báo cáo (doanh thu, top sản phẩm, tồn kho thấp).
+- **Kiểm thử**: Endpoint `/api/test/reset` (yêu cầu `APP_ENV=test` và `X-Test-Token`) để reset dữ liệu.
 
-## Cách chạy ở chế độ Test & Reset dữ liệu
-- Đặt biến môi trường `APP_ENV=test`.
-- Gửi yêu cầu `POST /api/test/reset` với header `X-Test-Token: secret-test-token-2026`.
+## Cài đặt và Chạy dự án
+Sử dụng Docker Compose để khởi chạy toàn bộ hệ thống:
 
-## Tài khoản mẫu
-- **Admin**: `admin@techparts.vn` / `Admin@123`
-- **Khách hàng**: `khach1@techparts.vn` đến `khach5@techparts.vn` / `Khach@123`
-- **Tài khoản bị khóa**: `khoa@techparts.vn` / `Khach@123`
+```bash
+# 1. Clone repository
+git clone https://github.com/riphampy/KTVDBCLPM.git
+cd KTVDBCLPM
+
+# 2. Khởi chạy
+docker compose up --build
+```
+
+- API sẵn sàng tại: `http://localhost:8000/api`
+- Swagger UI tại: `http://localhost:8000/apidocs`
+
+## Cấu trúc thư mục
+- `/app`: Backend code (services, routes, models).
+- `/static`: Frontend code (HTML, CSS, JS).
+- `/migrations`: Database migrations.
+- `/tests`: Smoke test (Postman/HTTP files).
+
+## Quy ước phát triển
+- Mọi action frontend quan trọng phải có `data-testid`.
+- API gọi bằng JS thuần (`fetch` wrapper).
+- Lỗi hiển thị tiếng Việt, tập trung tại `messages.js` (Frontend) và `messages.py` (Backend).

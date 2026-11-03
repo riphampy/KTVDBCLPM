@@ -13,4 +13,4 @@ COPY . .
 
 RUN mkdir -p /app/static
 
-CMD ["sh", "-c", "gunicorn \"app:create_app()\" -w ${WEB_CONCURRENCY:-1} -b 0.0.0.0:${PORT:-8000} --timeout 120"]
+CMD ["sh", "-c", "python -m app.prestart && exec gunicorn wsgi:app -w ${WEB_CONCURRENCY:-1} -b 0.0.0.0:${PORT:-8000} --timeout 120"]

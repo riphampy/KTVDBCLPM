@@ -24,7 +24,7 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     is_deleted = db.Column(db.Boolean, default=False, nullable=False)
 
-    reviews = db.relationship('Review', backref='product', lazy='dynamic')
+    reviews = db.relationship('Review', back_='product', lazy='dynamic')
     order_items = db.relationship('OrderItem', backref='product', lazy='dynamic')
     cart_items = db.relationship('CartItem', backref='product', lazy='dynamic')
     stock_receipt_items = db.relationship('StockReceiptItem', backref='product', lazy='dynamic')
@@ -102,7 +102,7 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    product = db.relationship('Product', backref='reviews', lazy='dynamic')
+    product = db.relationship('Product', back_='reviews', lazy='dynamic')
     user = db.relationship('User', backref='reviews', lazy='dynamic')
 
 class StockReceipt(db.Model):

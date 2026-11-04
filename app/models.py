@@ -102,7 +102,7 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    product = db.relationship('Product', back_='reviews', lazy='dynamic')
+    product = db.relationship('Product', back_populates='reviews', lazy='dynamic')
     user = db.relationship('User', backref='reviews', lazy='dynamic')
 
 class StockReceipt(db.Model):
